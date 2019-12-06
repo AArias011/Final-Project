@@ -10,20 +10,26 @@ app.listen(PORT, () => console.log(`Server has started on ${PORT}`))
 
 app.set('view engine', 'ejs');
 
-app.use('/:pokemonName', async (req, res) => {
-    // :pokemonName ref to ${request.params.pokemonName}
-    // see express documentation on req.params
-    // req stands for the request, params is the parameters of the request
-    // translation, what is your request to 
-    try {
-        res = await fetch(` https://rickandmortyapi.com/api/character`);
-        const _json = await res.json();
-        console.log(_json);
-        
-    } catch (error) {
+app.get('/:id' , async(req, res) => {
+    try{
+        ramData = await fetch(`https://rickandmortyapi.com/api/character/${req.params.id}`);
+
+        const json = await ramData.json();
+
+        // const {...results} = json.results;
+        // console.log('results', results);
+        console.log(json.url);
+        res.render('index', {
+            data: {
+                name: json.name,
+                image: json.image,
+                status: json.status,
+                species: json.species,
+                gender: json.gender
+            }
+        })
+
+    } catch(error){
         console.log(error);
     }
 });
-app.get('/home', (req,res) => {
-   res.sendFile(__dirname + '/index.html')
-})

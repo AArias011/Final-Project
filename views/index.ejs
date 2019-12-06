@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-      <h1>  </h1>
+      <h1> <%= data.name %> </h1>
     <ul class="nav">
         <li class="nav-item">
           <a class="nav-link active" href="#">Active</a>
@@ -26,6 +26,13 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-    
+
+      <img src="<%= data.image %>" alt="">
+      <div>
+        <ul><%= data.status%></ul>
+        <ul><%= data.species%></ul>
+        <ul><%= data.gender%></ul>
+      </div>
   </body>
 </html>
+
