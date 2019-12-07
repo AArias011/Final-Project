@@ -3,8 +3,9 @@ var fetch = require('node-fetch');
 const express = require('express');
 var expbs = require('express-handlebars');
 const app= express();
+var expressLayouts = require('express-ejs-layouts');
 
-
+app.use(expressLayouts);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server has started on ${PORT}`))
 
@@ -33,3 +34,7 @@ app.get('/:id' , async(req, res) => {
         console.log(error);
     }
 });
+
+app.get('/about', (req, res) => {
+    res.render('about');
+})
