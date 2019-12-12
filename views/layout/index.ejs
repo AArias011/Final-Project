@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Final Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+      <nav class="nav">
+          <a class="nav-link active" href="#">Final Project</a>
+          <a class="nav-link" href="#">Rick and Morty</a>
+          <a class="nav-link" href="#">Breaking Bad</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </nav>
+
+    <div class="container">
+      <div class="row">
+        <% characters.forEach((character) =>{ %>
+          <div class="card" style="width: 18rem;">
+                  <img src="<%= character.image %>" class="card-img-top" alt="charcter">
+                  <div class="card-body">
+                  <h5 class="card-title"><%=character.name%></h5>
+                  <p class="card-text">Status: <%=character.status%></p>
+                  <p class="card-text">Gender: <%=character.gender%></p>
+                      <button href=<%=`/rnm/${character.id}`%>Come Thru</button>
+                  </div>
+              </div>
+          <% }); %>
+      </div>
+    </div>
+    
+     
+
+  </body>
+</html>
+
