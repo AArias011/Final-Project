@@ -45,7 +45,7 @@ app.get('/ram/:id' , async(req, res) => {
             // characters: json.episode,
             data: {
                 name: json.name,
-                statues: json.status,
+                status: json.status,
                 species: json.species,
                 gender: json.gender,
                 image: json.image,
@@ -55,5 +55,24 @@ app.get('/ram/:id' , async(req, res) => {
         console.log(error);
     }
 
+});
+
+
+app.get('/BB', async( req, res) =>{
+    try{
+        people = await fetch(`https://www.breakingbadapi.com/api/characters`);
+
+        const json = await people.json();
+
+        // const[...characters] = json;
+        // console.log(json);
+        res.render('layout/breaking', {
+            characters: {
+                name: json.name
+            }
+        })
+    } catch(error){
+        console.log(error);
+    }
 });
 

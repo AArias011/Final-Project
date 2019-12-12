@@ -29,9 +29,15 @@
 
 
 
-        <div>
-          <%= data.name %>
-        </div>
+        <div class="card" style="width: 18rem; margin-left: auto; margin-right:auto;">
+          <img src="<%= data.image %>" class="card-img-top" alt="charcter">
+          <div class="card-body">
+          <h5 class="card-title"><%=data.name%></h5>
+          <p class="card-text">Status: <%=data.status%></p>
+          <p class="card-text">Gender: <%=data.gender%></p>
+          <button href= <%= `/ram` %>> GO BACK!</button>
+          </div>
+      </div>
      
 
   </body>
