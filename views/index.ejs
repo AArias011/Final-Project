@@ -7,22 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-      <nav class="nav">
-          <a class="nav-link active" href="#">Final Project</a>
-          <a class="nav-link" href="/ram">Rick and Morty</a>
-          <a class="nav-link" href="#">Breaking Bad</a>
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </nav>
-  
+      <%- include('partials/navBar') %>
+
+      
+      <div class="contain" style="position: relative; text-align: center; color: white;">
+        <img src="ram3.png" class="img-fluid" style="width:100%; margin-bottom: 20px;">
+        <div class="centered" style=" font-size: 80px; position:absolute; top:50%; left: 50%; transform: translate(-130%, -50%); ">Rick and Morty</div>
+      </div>
 
     <div class="container">
       <div class="row">
         <% characters.forEach((character) =>{ %>
-          <div class="card" style="width: 18rem;">
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
                   <img src="<%= character.image %>" class="card-img-top" alt="charcter">
                   <div class="card-body">
                   <h5 class="card-title"><%=character.name%></h5>
@@ -30,9 +31,11 @@
                   <p class="card-text">Gender: <%=character.gender%></p>
                   <p class="card-text">Species: <%=character.species%></p>
 
-                      <button href= <%= `/ram/:id${character.id} `%> >Click Here</button>
+                      <button><a href="ram/<%= character.id %>"> Click Here</a></button>
                   </div>
               </div>
+          </div>
+          
           <% }); %>
       </div>
     </div>

@@ -1,7 +1,6 @@
 const path = require('path');
 var fetch = require('node-fetch');
 const express = require('express');
-var expbs = require('express-handlebars');
 const app= express();
 // var expressLayouts = require('express-ejs-layouts');
 // app.use(expressLayouts);
@@ -10,8 +9,9 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server has started on ${PORT}`))
 
 app.set('view engine', 'ejs');
-
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.static('public'));
 
 app.get('/ram', async (req, res) => {
 
@@ -24,7 +24,7 @@ app.get('/ram', async (req, res) => {
         
         // console.log(people);
         
-        res.render('layout/index', {
+        res.render('index', {
             characters: characters
         })
     } catch(error){
@@ -41,7 +41,7 @@ app.get('/ram/:id' , async(req, res) => {
         
         console.log(json);
         
-        res.render('layout/all', {
+        res.render('all', {
             // characters: json.episode,
             data: {
                 name: json.name,
@@ -64,12 +64,12 @@ app.get('/BB', async( req, res) =>{
 
         const json = await people.json();
 
-        // const[...characters] = json;
+
+
+        const[...characters] = json;
         // console.log(json);
-        res.render('layout/breaking', {
-            characters: {
-                name: json.name
-            }
+        res.render('breaking', {
+            characters: characters
         })
     } catch(error){
         console.log(error);

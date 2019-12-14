@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Final Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+      <%- include('partials/navBar') %>
+    
+      <div class="contain" style="position: relative; text-align: center; color: white;">
+          <img src="bb2.jpg" class="img-fluid" style="width:100%; margin-bottom: 20px;">
+          <div class="centered" style=" font-size: 80px; position:absolute; top:50%; left: 50%; transform: translate(20%, -50%); ">Breaking Bad</div>
+        </div>
+
+              <div class="container">
+                <div class="row">
+                  <% characters.forEach((character) =>{ %>
+                    <div class="col-sm">
+                      <div class="card" style="width: 18rem;">
+                            <img src="<%= character.img %>" class="card-img-top" alt="charcter">
+                            <div class="card-body">
+                            <h5 class="card-title"><%=character.name%></h5>
+                            <p class="card-text"><%=character.nickname%></p>
+                            <p class="card-text"><%=character.birthday%></p>
+                            <p class="card-text"><%=character.occupation%></p>
+                            <p class="card-text"><%=character.status%></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <% }); %>
+                </div>
+              </div>
+  </body>
+</html>
+
