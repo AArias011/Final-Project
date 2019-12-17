@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Final Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+      <%- include('partials/navBar') %>
+    
+      <div class="contain" style="position: relative; text-align: center; color: white;">
+          <img src="harry.jpg" class="img-fluid" style="width:100%; margin-bottom: 20px;">
+          <div class="centered" style=" font-size: 90px; position:absolute; top:50%; left: 50%; transform: translate(-130%, -50%); ">Harry Potter</div>
+        </div>
+
+              <div class="container">
+                <div class="row">
+                  <% house.forEach((item) =>{ %>
+                    <div class="col-sm">
+                      <div class="card" style="width: 18rem;">
+                        <% if (item.name === "Gryffindor") { %>
+                            <img src="gryffindor.jpg" class="card-img-top" alt="NOOOO">
+                            <% } %>
+
+                            <% if (item.name === "Ravenclaw") { %>
+                                <img src="ravenclaw.jpg" class="card-img-top" alt="NOOOO">
+                                <% } %>
+
+                                <% if (item.name === "Slytherin") { %>
+                                    <img src="slytherin.jpg" class="card-img-top" alt="NOOOO">
+                                    <% } %>
+                            
+                                    <% if (item.name === "Hufflepuff") { %>
+                                        <img src="hufflepuff.jpg" class="card-img-top" alt="NOOOO">
+                                        <% } %>
+
+                            <div class="card-body">
+                            <h5 class="card-title"><%=item.name%></h5>
+                            <p class="card-text"><%=item.mascot%></p>
+                            <p class="card-text"><%=item.headOfHouse%></p>
+                            <p class="card-text"><%=item.houseGhost%></p>
+                            <p class="card-text"><%=item.Founder%></p>
+                            <p class="card-text"><%=item.values%></p>
+                            <p class="card-text"><%=item.colors%></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <% }); %>
+                </div>
+              </div>
+
+              <footer class="page-footer font-small">
+                    <div class="footer-copyright text-center py-3">Data provided by
+                        <a href="https://www.potterapi.com/"> Harry Potter API </a>
+                    </div>
+                </footer>
+  </body>
+
+</html>
+
