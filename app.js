@@ -91,3 +91,9 @@ app.get('/HP', async(req,res) => {
         console.log(error);
     }
 })
+
+app.get('/', async(req, res) => {
+    res.render('home', {
+        
+    })
+})
