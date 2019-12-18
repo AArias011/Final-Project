@@ -76,6 +76,8 @@ app.get('/BB', async( req, res) =>{
     }
 });
 
+
+
 app.get('/HP', async(req,res) => {
     try{
         house = await fetch(`https://www.potterapi.com/v1/houses/?key=$2a$10$zGOa9Qs.7effh0BEheZYheZJkAvOYPS6VjRpp4EdqVw8fnthDCyme`);
